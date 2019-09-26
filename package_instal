@@ -1,0 +1,29 @@
+import html
+import lxml
+import csv
+import urllib
+import requests
+import re,sys
+import string
+import traceback
+import collections
+import bs4
+from lxml import etree
+from lxml.html.soupparser import fromstring
+from lxml.etree import tostring
+from bs4 import BeautifulSoup as soup
+from urllib.request import urlopen as uReq
+from collections import namedtuple
+
+my_url = ""
+uClient = uReq(my_url)
+page_html = uClient.read()
+uClient.close()
+html_soup = soup(page_html, "html.parser")
+code_soup = soup(page_html, "lxml")
+root_html = fromstring("html_soup")
+root_code = fromstring("code_soup")
+body = fromstring(page_html).find('.//body')
+
+print(page_html).find('.//body')
+print(page_html).get('.//body')
